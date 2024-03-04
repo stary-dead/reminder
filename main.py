@@ -27,8 +27,8 @@ async def start(message):
     print(f"|{message.chat.id}|")
     await bot.send_message(chat_id, "Привет! Я бот напоминалка.")
 
-@bot.message_handler(commands=['next_musor'])
-async def next_musor(message):
+@bot.message_handler(commands=['next'])
+async def next(message):
     today = date.today()
     next_date = next((d for d in dates if d >= today), None)
     reply_message = (f"Следующая дата вывоза мусора: {next_date.strftime('%A, %d %B')}"
@@ -39,20 +39,6 @@ async def next_musor(message):
 async def send_calendar(message):
     with open('plan.jpg', 'rb') as plan_image:
         await bot.send_photo(chat_id, plan_image)
-
-async def periodic_message():
-    while True:
-        await asyncio.sleep(5)
-        remind()
-
-async def remind():
-    today = date.today()
-    for date_item in dates:
-        days_difference = (date_item - today).days
-        if days_difference == 3:
-            await bot.send_message(chat_id, f"Через 3 дня будет событие {date_item}")
-        elif days_difference == 1:
-            await bot.send_message(chat_id, f"Завтра будет событие {date_item}")
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()

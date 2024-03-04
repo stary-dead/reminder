@@ -30,14 +30,14 @@ async def periodic_remind():
             elif days_difference == 1:
                 await bot.send_message(chat_id=chat_id, text = f"Завтра {date_item} будет вывоз мусора")
 
-        await asyncio.sleep(21600)  # Ждать 5 секунд между выполнениями
+        await asyncio.sleep(21600) 
 
-if __name__ == "__main__":
-    try:
-        loop = asyncio.get_event_loop()
-    except RuntimeError:  # Если нет текущего цикла событий
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
+# if __name__ == "__main__":
+#     try:
+#         loop = asyncio.get_event_loop()
+#     except RuntimeError:  # Если нет текущего цикла событий
+#         loop = asyncio.new_event_loop()
+#         asyncio.set_event_loop(loop)
     
-    loop.create_task(periodic_remind())  # Запуск нашей функции напоминания
-    loop.run_forever()
+#     loop.create_task(periodic_remind())
+#     loop.run_forever()
