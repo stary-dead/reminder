@@ -1,9 +1,9 @@
 import asyncio
 import telebot.async_telebot
 from datetime import date
-TOKEN = '6790110505:AAGRBcF-QZLg6DWEOh2D9EWphtDE3hiv4Oc'
+TOKEN = '6790110505:AAGwlh0Svnm9O2V04ABJnDgdCt9rdL2hqMo'
 bot = telebot.async_telebot.AsyncTeleBot(TOKEN)
-chat_id = "-4023351869"
+chat_id = "-1002115681998"
 dates = [
     date(2024, 3, 15),
     date(2024, 4, 12),
